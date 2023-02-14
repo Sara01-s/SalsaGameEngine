@@ -47,7 +47,7 @@ inline int ptc_process_events(void) { return 0; }
 
 // display target
 #define __PTC_DDRAW__
-//#define __PTC_GDI__
+#define __PTC_GDI__
 //#define __PTC_VFW__
 
 // configuration
@@ -74,8 +74,8 @@ inline int ptc_process_events(void) { return 0; }
 #define __PTC_LITTLE_ENDIAN__
 
 // linker configuration
-//#define __PTC_WINMAIN_CRT__
-#define __PTC_MAIN_CRT__
+#define __PTC_WINMAIN_CRT__
+//#define __PTC_MAIN_CRT__
 
 
 #endif

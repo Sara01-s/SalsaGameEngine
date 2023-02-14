@@ -1,0 +1,18 @@
+// struct Screen_t {
+
+// Patrón RAII (Resource allocation is inicialization)
+// public:
+//     Screen_t(uint32_t screenWidth, uint32_t screenHeight)
+//         : _screen(new uint32_t[screenWidth * screenHeight]) {}
+
+//     Screen_t(uint32_t screenResolution) 
+//         : _screen(new uint32_t[screenResolution]) {}
+
+//     ~Screen_t() { delete[] _screen; }
+
+//     inline uint32_t* GetScreen() { return _screen; }
+
+// private:
+//     uint32_t* _screen { nullptr };
+// };
+

@@ -34,7 +34,7 @@ MKDIR   := mkdir -p
 RM		:= rm
 SRC     := src
 OBJ     := obj
-LIBS    := libs/picoPNG/libPicoPNG.a libs/tinyPTC/libTinyPTC.a -lX11 -L/usr/lib/i386-linux-gnu/libGLX_nvidia.so.0
+LIBS    := libs/picoPNG/libPicoPNG.a libs/tinyPTC/libTinyPTC.a
 LIBSDIR := libs
 INCDIRS := -I$(SRC) -I$(LIBSDIR)
 
@@ -45,11 +45,10 @@ else
 endif
 
 # % = * (cualquier cosa)
-# iname porque es incase sesitive
-ALLCPPS    := $(shell 	  find src/ -type f -iname *.cpp)
-ALLCS      := $(shell 	  find src/ -type f -iname *.c)
+ALLCPPS    := $(shell     find src/ -iname *.cpp)
+ALLCS      := $(shell 	  find src/ -iname *.c)
 ALLOBJ     := $(foreach   F,$(ALLCPPS) $(ALLCS),$(call C2O,$(F)))
-SUBDIRS    := $(shell 	  find $(SRC) -type d)
+SUBDIRS    := $(shell 	  find src -type d)
 OBJSUBDIRS := $(patsubst  $(SRC)%,$(OBJ)%,$(SUBDIRS))
 
 .PHONY: info libs libs-clean libs-cleanall

@@ -49,15 +49,15 @@ endif
 
 # % = * (cualquier cosa)
 # iname porque es incase sesitive
-ALLCPPS    := $(shell 	  find src/ -type f -iname *.cpp)
-ALLCS      := $(shell 	  find src/ -type f -iname *.c)
+ALLCPPS    := $(shell     find src/ -iname *.cpp)
+ALLCS      := $(shell 	  find src/ -iname *.c)
 ALLOBJ     := $(foreach   F,$(ALLCPPS) $(ALLCS),$(call C2O,$(F)))
-SUBDIRS    := $(shell 	  find $(SRC) -type d)
+SUBDIRS    := $(shell 	  find src -type d)
 OBJSUBDIRS := $(patsubst  $(SRC)%,$(OBJ)%,$(SUBDIRS))
 
 .PHONY: info
 
-# Archivar librería
+# Archivar librería compilada
 $(APP) : $(OBJSUBDIRS) $(ALLOBJ)
 	$(AR) $(ARFLAGS) $(APP) $(ALLOBJ)
 	$(RANLIB) $(APP)

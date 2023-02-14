@@ -5,7 +5,9 @@
 if [ -z $1 ]; then
     echo "Nothing to search"
 else
-    for A in $(ls /usr/lib/i386-linux-gnu/ | grep X); do 
-        echo $A; nm -D "/usr/lib/i386-linux-gnu/${A}" | grep $1; 
+    for A in $(ls -r /usr/lib/ | grep X); 
+        do 
+            echo $A;
+            nm -D /usr/lib/ | grep $1; 
     done
 fi
